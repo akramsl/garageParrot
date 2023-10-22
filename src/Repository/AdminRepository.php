@@ -25,6 +25,25 @@ class AdminRepository extends ServiceEntityRepository implements PasswordUpgrade
         parent::__construct($registry, Admin::class);
     }
 
+    public function save(Admin $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->persist($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+    public function remove(Admin $entity, bool $flush = false): void
+    {
+        $this->getEntityManager()->remove($entity);
+
+        if ($flush) {
+            $this->getEntityManager()->flush();
+        }
+    }
+
+
     /**
      * Used to upgrade (rehash) the user's password automatically over time.
      */
