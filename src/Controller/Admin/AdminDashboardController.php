@@ -18,7 +18,7 @@ class AdminDashboardController extends AbstractDashboardController
     #[IsGranted('ROLE_ADMIN')]
     public function index(): Response
     {
-        return $this->render('admin/dashboard.html.twig');
+        return $this->render('admin/adminDashboard.html.twig');
     }
 
     public function configureDashboard(): Dashboard
