@@ -1,0 +1,15 @@
+header img {
+    max-height: 120px;
+}
+
+@media (max-width: 991px) {
+    .sidebar {
+        background-color: rgba(85, 17, 116, 0.79);
+        backdrop-filter: blur(2px);
+    }
+}
+
+#btn {
+    background-color: #838BC2;
+    box-shadow:inset -5px -5px 25px #0a0606, 5px 5px 10px #140707;
+}

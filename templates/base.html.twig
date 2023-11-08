@@ -26,14 +26,11 @@
         );
       }
 
-      header img {
-        max-height: 120px;
+      header {
+        min-width: 1920px;
+        min-height: 146px;
       }
 
-      .active {
-        background-color: #007bff;
-        color: #fff;
-      }
     </style>
     {% endblock %}
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
@@ -49,66 +46,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
-        <a class="navbar-brand" href="{{ path('acceuil') }}">
-          <img
-            src="{{ asset('Pictures/garage-v-parrot-logo.png') }}"
-            alt="Logo"
-          />
-        </a>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarNav"
-          aria-controls="navbarNav"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li
-              class="nav-item {{
-                app.request.attributes.get('_route') == 'acceuil'
-                  ? 'active'
-                  : ''
-              }}"
-            >
-              <a class="nav-link" href="{{ path('acceuil') }}">Accueil</a>
-            </li>
-            <li
-              class="nav-item {{
-                app.request.attributes.get('_route') == 'services'
-                  ? 'active'
-                  : ''
-              }}"
-            >
-              <a class="nav-link" href="{{ path('services') }}">Services</a>
-            </li>
-            <li
-              class="nav-item {{
-                app.request.attributes.get('_route') == 'vehicules'
-                  ? 'active'
-                  : ''
-              }}"
-            >
-              <a class="nav-link" href="{{ path('vehicules') }}">Véhicules</a>
-            </li>
-            <li
-              class="nav-item {{
-                app.request.attributes.get('_route') == 'contact'
-                  ? 'active'
-                  : ''
-              }}"
-            >
-              <a class="nav-link" href="{{ path('contact') }}">Contact</a>
-            </li>
-            <!-- Ajoutez d'autres éléments de menu ici avec vos routes personnalisées -->
-          </ul>
-        </div>
-      </nav>
+      {% include "_track/navbar.html.twig" %}
     </header>
   </body>
   {% block body %}{% endblock %}
