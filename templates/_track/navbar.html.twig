@@ -46,33 +46,68 @@
         >
           <li class="nav-item">
             <a
-              class="nav-link active"
+              class="nav-link {{ app.request.attributes.get('_route') == 'acceuil' ? 'active' : '' }}"
               aria-current="page"
               href="{{ path('acceuil') }}"
               >Accueil</a
             >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('services') }}">Services</a>
+            <a class="nav-link {{ app.request.attributes.get('_route') == 'services' ? 'active' : '' }}" 
+            href="{{ path('services') }}"
+            >Services</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('vehicules') }}">Véhicules</a>
+            <a class="nav-link {{ app.request.attributes.get('_route') == 'vehicules' ? 'active' : '' }}" 
+            href="{{ path('vehicules') }}"
+            >Véhicules</a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ path('contact') }}">Contact</a>
+            <a class="nav-link  {{ app.request.attributes.get('_route') == 'contact' ? 'active' : '' }}" 
+            href="{{ path('contact') }}"
+            >Contact</a>
           </li>
-        </ul>
-        <!-- Login -->
-        <div class="d-flex justify-content-center align-item-center gap-3">
-          <a
-            href="{{ path('app_login') }}"
-            id="btn"
-            class="text-light text-decoration-none px-3 py-1 rounded-4"
-            >Connexion</a
-          >
-        </div>
+
+          {% if app.user %} 
+            {% if is_granted('ROLE_ADMIN') %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('admin') }}">Administration</a>
+              </li>
+            </ul>
+              <div class="d-flex justify-content-center align-item-center gap-3">
+                <a
+                  href="{{ path('app_logout') }}"
+                  class="btn text-light text-decoration-none px-3 py-1 rounded-4"
+                  >Me déconnecter</a
+                >
+              </div>
+            {% elseif is_granted('ROLE_USER') %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ path('staff') }}">Poste de travail</a>
+              </li>
+            </ul>
+            <div class="d-flex justify-content-center align-item-center gap-3">
+              <a
+                href="{{ path('app_logout') }}"
+                class="btn text-light text-decoration-none px-3 py-1 rounded-4"
+                >Me déconnecter</a
+              >
+            </div>
+            {% endif %}
+            {% else %}
+          </ul>
+            <div class="d-flex justify-content-center align-item-center gap-3">
+              <a
+                href="{{ path('app_login') }}"
+                class="btn text-light text-decoration-none px-3 py-1 rounded-4"
+                >Me connecter</a
+              >
+            </div>
+            
+          {% endif %}
+
       </div>
     </div>
   </div>
