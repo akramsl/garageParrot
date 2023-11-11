@@ -1,0 +1,91 @@
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/_track/footer.css') }}" />
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+/>
+<script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+{% endblock %}
+<div id="map"></div>
+<div class="container text-center text-md-left">
+  <div class="row text-center text-md-left">
+    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold text-warning">
+        Horraire
+      </h5>
+      <p>Lundi :</p>
+      <p>Mardi :</p>
+      <p>Mercredi :</p>
+      <p>Jeudi :</p>
+      <p>Vendredi :</p>
+      <p>Samedi :</p>
+    </div>
+    <div class="col-md-3 col-lg-2 col-xl-3 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold text-warning">
+        Coordonnées
+      </h5>
+      <p>
+        <a
+          href="https://www.google.com/maps/place/Stadium+TFC/@43.5832972,1.434048,15z/data=!4m6!3m5!1s0x12aebb8442a6d3ad:0x258ae94747bde3cd!8m2!3d43.5832972!4d1.434048!16zL20vMDk4ejZj?entry=ttu"
+          class="text-white text-decoration-none"
+        >
+          <i class="fas fa-home"></i>145 rue du combatant<br />
+          31000 Toulouse<br
+        /></a>
+        <a href="tel:+1234567890" class="text-white text-decoration-none">
+          <i class="fas fa-phone-alt"></i>04 12 34 56 78 </a
+        ><br />
+        <a
+          href="mailto:contact@garagevparrot.fr"
+          class="text-white text-decoration-none"
+        >
+          <i class="fas fa-envelope"></i>contact@garagevparrot.fr
+        </a>
+      </p>
+    </div>
+    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+      <h5 class="text-uppercase mb-4 font-weight-bold text-warning">
+        Réseau sociaux
+      </h5>
+      <p>
+        <span
+          class="iconify"
+          data-icon="simple-icons:instagram"
+          data-inline="false"
+        ></span>
+        garagevparrot
+      </p>
+      <p>
+        <span
+          class="iconify"
+          data-icon="simple-icons:tiktok"
+          data-inline="false"
+        ></span>
+        garagevparrot
+      </p>
+    </div>
+  </div>
+  <hr class="mb-4" />
+  <div class="d-flex align-items-center justify-content-center">
+    <p>
+      Copyright ©2023 All right reserved by:
+      <a href="#" style="text-decoration: none">
+        <strong class="text-warning">SMAIL Akram</strong>
+      </a>
+    </p>
+  </div>
+</div>
+
+{% block javascripts %}
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""
+></script>
+<script src="{{ asset('assets/js/_track/footer.js') }}"></script>
+{% endblock %}
