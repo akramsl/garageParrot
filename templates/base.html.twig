@@ -15,21 +15,7 @@
     {# Feuille de styles #}
 
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}" />
-    {% block stylesheets %}
-    <style>
-      body {
-        height: auto;
-        background-image: linear-gradient(
-          to bottom,
-          rgb(131, 139, 194),
-          rgb(84, 98, 162),
-          rgba(85, 17, 116, 0.79),
-          rgb(115, 81, 141),
-          rgb(113, 92, 140)
-        );
-      }
-  </style>
-    {% endblock %}
+    {% block stylesheets %}{% endblock %}
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
     </head>
@@ -37,11 +23,8 @@
     <header>
       {% include "_track/navbar.html.twig" %}
     </header>
-    <main class="container flex-grow-1">
-      <!-- Contenu principal de la page -->
-      <h1>Contenu principal</h1>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. ...</p>
-    </main>
+    
+    {% block body %}{% endblock %}
     <footer class="footer bg-transparent text-white py-3 mt-auto">
       {% include "_track/footer.html.twig" %}
     </footer>
@@ -56,5 +39,4 @@
     <script src="{{ asset('assets/js/scripts.js') }}" defer></script>
   
   </body>
-  {% block body %}{% endblock %}
 </html>

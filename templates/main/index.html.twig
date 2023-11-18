@@ -2,7 +2,59 @@
 
 {% block title %}Acceuil{% endblock %}
 
-{% block body %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('assets/css/main/styles.css')}}">
+    {{ parent() }}
+{% endblock %}
 
+{% block body %}
+<main class="container-fluid">
+    <div class="row">
+        <div class="col-12 image_container">
+            <img class="wallpaper" src="{{ asset('Pictures/client_en_panne.jpg') }}" alt="Client en panne">
+            <a href="{{ path('contact') }}" class="text-link">Prenez rendez-vous maintenant</a>
+        </div>
+    </div>
+
+    <section class="row p-3 my-4">
+
+            <div class="col-md-6 text-center ps-md-5">
+                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            </div>
+            <div class="col-md-6 px-5">
+                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
+                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                </p>
+            </div>
+    </section>
+    <section class=" d-flex flex-md-row-reverse row p-3 my-4">
+
+            <div class="col-md-6 text-center ps-md-5">
+                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            </div>
+            <div class="col-md-6 px-5">
+                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
+                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                </p>
+            </div>
+    </section>
+    <section class="row p-3 my-4">
+
+            <div class="col-md-6 text-center ps-md-5">
+                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            </div>
+            <div class="col-md-6 px-5">
+                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
+                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                </p>
+            </div>
+    </section>
+</main>
  
 {% endblock %}

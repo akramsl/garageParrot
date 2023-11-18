@@ -7,6 +7,10 @@ header img {
     max-height: 120px;
 }
 
+nav {
+    background-color: rgb(131, 139, 194);
+}
+
 @media (max-width: 991px) {
     .sidebar {
         background-color: rgba(85, 17, 116, 0.79);
