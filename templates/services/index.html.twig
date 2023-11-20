@@ -3,17 +3,20 @@
 {% block title %}Hello ServicesController!{% endblock %}
 
 {% block body %}
-    <h1>Services</h1>
+    <h1 class="text-center text-warning">Services</h1>
 
     <div class="card-deck container-fluid">
-        {% for service in services %}
-            <div class="card col-6 col-md-3">
-                <img src="{{ asset('Pictures/upload/service/') ~ service.picture }}" class="card-img-top" alt="{{ service.title }}">
-                <div class="card-body">
-                    <h5 class="card-title">{{ service.title }}</h5>
-                    <p class="card-text">{{ service.content|raw }}</p> 
+        <div class="row">
+
+            {% for service in services %}
+                <div class="card col-12 col-md-4 bg-transparent text-light text-center border-warning">
+                    <img src="{{ asset('Pictures/upload/service/') ~ service.picture }}" class="card-img-top" alt="{{ service.title }}">
+                    <div class="card-body">
+                        <h5 class="card-title text-uppercase text-warning">{{ service.title }}</h5>
+                        <p class="card-text ">{{ service.content|raw }}</p> 
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
