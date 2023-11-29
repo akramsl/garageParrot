@@ -1,16 +1,19 @@
 @font-face {
-    font-family: 'Days One';
-    src: url('../../fonts/DaysOne.ttf') format('truetype');
+  font-family: 'Days One';
+  src: url('../../fonts/DaysOne.ttf') format('truetype');
 }
+
 body {
   height: auto;
-  background-image: linear-gradient(
-    to bottom,
-    rgb(131, 139, 194),
-    rgb(84, 98, 162),
-    rgba(85, 17, 116, 0.79),
-    rgb(115, 81, 141),
-    rgb(113, 92, 140)
-  );
+  background-image: linear-gradient(to bottom,
+      rgb(131, 139, 194),
+      rgb(84, 98, 162),
+      rgba(85, 17, 116, 0.79),
+      rgb(115, 81, 141),
+      rgb(113, 92, 140));
   font-family: 'Days One';
+}
+
+hr {
+  border-top: 5px solid rgba(255, 193, 7, .9);
 }

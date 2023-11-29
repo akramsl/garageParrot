@@ -1,0 +1,29 @@
+.img_carousel {
+    height: 22em;
+}
+
+@media screen and (min-width: 992px) {
+    .carousel {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .img_carousel {
+        height: 35em;
+    }
+}
+
+
+.notify-price {
+    position: absolute;
+    left: 25px;
+    top: 25px;
+    background: rgba(167, 24, 215, 0.681);
+    border-radius: 50%;
+    text-align: center;
+    font-size: 25px;
+    width: 150px;
+    height: 80px;
+    padding: 20px 0 0 0;
+}

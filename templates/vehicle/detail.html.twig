@@ -1,0 +1,79 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+<link rel="stylesheet" href="{{ asset('assets/css/vehicle/detail.css') }}">
+{% endblock %}
+
+{% block body %}
+<div id="carouselExample" class="carousel slide">
+    <div class="carousel-inner">
+        {% for picture in pictures %}
+
+        <div class="carousel-item {% if loop.first %}active{% endif %}">
+            <img src="{{ vich_uploader_asset(picture, 'imageFile') }}" class="d-block w-100 img_carousel"
+                alt="{{ picture.imageName }}">
+            <span class="notify-price text-warning">{{ vehicle.price }} €</span>
+        </div>
+        {% endfor %}
+
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+<div class="container text-center">
+    <hr class="my-5">
+    <div class="row justify-content-center ">
+        <div class="col-4">
+            <h4 class="text-warning">Marque</h4>
+            <span>{{ vehicle.brand }}</span>
+        </div>
+        <div class="col-4">
+            <h4 class="text-warning">Modèle</h4>
+            <span>{{ vehicle.model }}</span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h4 class="text-warning">Année</h4>
+            <span>{{ vehicle.year }}</span>
+        </div>
+        <div class="col-4">
+            <h4 class="text-warning">Kilométrage</h4>
+            <span>{{ vehicle.mileage }}</span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h4 class="text-warning">Carburant</h4>
+            <span>{{ vehicle.fuel }}</span>
+        </div>
+        <div class="col-4">
+            <h4 class="text-warning">Boite de vitesse</h4>
+            <span>{{ vehicle.gearbox }}</span>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-4">
+            <h4 class="text-warning">Puissance fiscale</h4>
+            <span>{{ vehicle.power }} Cv</span>
+        </div>
+        <div class="col-4">
+            <h4 class="text-warning">Puissance DIN</h4>
+            <span>{{ vehicle.getHorsePower() }} Ch</span>
+        </div>
+    </div>
+    <hr class="my-5">
+    <div class="row">
+        <div class="col">
+            <h2 class="text-warning mb-5">Description</h2>
+            <p class="mb-5">{{ vehicle.description|raw }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

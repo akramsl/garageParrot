@@ -5,6 +5,7 @@ namespace App\Controller\Staff;
 use App\Entity\AddComment;
 use App\Entity\VehicleContact;
 use App\Entity\VehicleListing;
+use App\Entity\VehiclePicture;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -29,6 +30,7 @@ class StaffDashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToCrud('Commentaire', 'fa-solid fa-comments', AddComment::class);
         yield MenuItem::linkToCrud('Véhicules', 'fa-solid fa-car-rear', VehicleListing::class);
+        yield MenuItem::linkToCrud('Images des véhicules', 'fa-solid fa-car-rear', VehiclePicture::class);
         yield MenuItem::linkToCrud('Conctacte du véhicule ', 'fa-solid fa-envelope-circle-check', VehicleContact::class);
     }
 }
