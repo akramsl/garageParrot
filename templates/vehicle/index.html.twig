@@ -8,18 +8,28 @@
 
 {% block body %}
 <div class="container">
+    {# formulaire des filtres de recherche #}
+    <div class="row">
+        {{ form_start(form) }}
+            {{ form_row(form.brand) }}
+            {{ form_row(form.fuel) }}
+            {{ form_row(form.gearbox) }}
+            <button type="submit">Filtrer</button>
+        {{ form_end(form) }}
+    </div>
+    {# Carte des véhicules #}
     <div class="row" id="ads">
         {% for vehicle in vehicles %}
         <div class="col-md-4">
             <div class="card rounded">
                 <div class="card-image">
                     <span class="card-notify-year">{{ vehicle.year }}</span>
-                    <img src="{{ asset('Pictures/upload/vehicle/' ~ vehicle.vehiclePictures.first().imageName) }}"
+                    <img src="{{ asset('Pictures/upload/vehicle/' ~ (vehicle.vehiclePictures.first() ? vehicle.vehiclePictures.first().imageName : 'default/image-non-disponible.png')) }}"
                         alt="voiture">
                 </div>
                 <div class="card-image-overlay m-auto">
-                    <span class="card-detail-badge">{{ vehicle.price }} €</span>
-                    <span class="card-detail-badge">{{ vehicle.mileage }} Kms</span>
+                    <span class="card-detail-badge">{{ vehicle.price | number_format(0, ',', ' ') }} €</span>
+                    <span class="card-detail-badge">{{ vehicle.mileage | number_format(0, ',', ' ')}} Kms</span>
                     <span class="card-detail-badge">{{ vehicle.gearbox }}</span>
                 </div>
                 <div class="card-body text-center">
