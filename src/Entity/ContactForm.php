@@ -29,6 +29,9 @@ class ContactForm
     #[ORM\Column(type: Types::TEXT)]
     private ?string $message = null;
 
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $contactDateTime = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -90,6 +93,18 @@ class ContactForm
     public function setMessage(string $message): static
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getContactDateTime(): ?\DateTimeInterface
+    {
+        return $this->contactDateTime;
+    }
+
+    public function setContactDateTime(\DateTimeInterface $contactDateTime): static
+    {
+        $this->contactDateTime = $contactDateTime;
 
         return $this;
     }
