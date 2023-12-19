@@ -3,8 +3,8 @@
 {% block title %}Acceuil{% endblock %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('assets/css/main/styles.css')}}">
-    {{ parent() }}
+<link rel="stylesheet" href="{{ asset('assets/css/main/styles.css')}}">
+{{ parent() }}
 {% endblock %}
 
 {% block body %}
@@ -18,43 +18,81 @@
 
     <section class="row p-3 my-4">
 
-            <div class="col-md-6 text-center ps-md-5">
-                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
-            </div>
-            <div class="col-md-6 px-5">
-                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
-                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
-                </p>
-            </div>
+        <div class="col-md-6 text-center ps-md-5">
+            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+        </div>
+        <div class="col-md-6 px-5">
+            <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
+                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+            </p>
+        </div>
     </section>
     <section class=" d-flex flex-md-row-reverse row p-3 my-4">
 
-            <div class="col-md-6 text-center ps-md-5">
-                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
-            </div>
-            <div class="col-md-6 px-5">
-                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
-                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
-                </p>
-            </div>
+        <div class="col-md-6 text-center ps-md-5">
+            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+        </div>
+        <div class="col-md-6 px-5">
+            <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
+                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+            </p>
+        </div>
     </section>
     <section class="row p-3 my-4">
 
-            <div class="col-md-6 text-center ps-md-5">
-                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
-            </div>
-            <div class="col-md-6 px-5">
-                <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum 
-                    exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                     Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
-                </p>
-            </div>
+        <div class="col-md-6 text-center ps-md-5">
+            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+        </div>
+        <div class="col-md-6 px-5">
+            <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
+                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
+                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+            </p>
+        </div>
     </section>
+    <div class="row bg-success">
+        <h2>Témoignages clients</h2>
+        <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                {% for comment in comments %}
+                <div class="carousel-item {% if loop.first %}active{% endif %}">
+                    <div class="row">
+                        <div class="col-md-6 text-center ps-md-5">
+                            {% for i in 1..comment.rating %}
+                            ⭐️
+                            {% endfor %}
+                        </div>
+                        <div class="col-md-6 text-center ps-md-5">
+                            {{ comment.name}}
+                        </div>
+                        <div class="col-md-6 px-5">
+                            <p
+                                class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
+                                {{ comment.comment }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <a class="btn" href="{{ path('add_comment') }}" role="button"> Ajouter un commentaire </a>
+    </div>
 </main>
- 
+
 {% endblock %}

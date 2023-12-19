@@ -7,7 +7,6 @@ use App\Form\Type\VehiclePictureType;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -35,7 +34,6 @@ class VehicleListingCrudController extends AbstractCrudController
 
         
         return [
-            IdField::new('id')->hideOnForm(),
             TextField::new('brand'),
             TextField::new('model'),
             IntegerField::new('year'),
