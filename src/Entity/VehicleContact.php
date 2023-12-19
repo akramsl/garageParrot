@@ -32,6 +32,12 @@ class VehicleContact
     #[ORM\ManyToOne(inversedBy: 'vehicleContacts')]
     private ?VehicleListing $vehicleListing = null;
 
+    #[ORM\Column(length: 500)]
+    private ?string $url = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE)]
+    private ?\DateTimeInterface $contactDateTime = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -105,6 +111,30 @@ class VehicleContact
     public function setVehicleListing(?VehicleListing $vehicleListing): static
     {
         $this->vehicleListing = $vehicleListing;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(string $url): static
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getContactDateTime(): ?\DateTimeInterface
+    {
+        return $this->contactDateTime;
+    }
+
+    public function setContactDateTime(\DateTimeInterface $contactDateTime): static
+    {
+        $this->contactDateTime = $contactDateTime;
 
         return $this;
     }

@@ -2,13 +2,16 @@
 
 namespace App\Controller;
 
+use App\Entity\VehicleContact;
 use App\Entity\VehicleListing;
+use App\Form\VehicleContactType;
 use App\Form\VehicleFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
 class VehicleController extends AbstractController
 {
@@ -61,7 +64,7 @@ class VehicleController extends AbstractController
     }
 
     #[Route('/vehicules/{id}', name: 'vehicle_detail')]
-    public function detail($id): Response
+    public function detail($id, Request $request): Response
     {
         $vehicle = $this->entityManager->getRepository(VehicleListing::class)->find($id);
 
@@ -71,9 +74,33 @@ class VehicleController extends AbstractController
 
         $pictures = $vehicle->getVehiclePictures();
 
+        $contact = new VehicleContact();
+        $contact->setUrl($this->generateUrl('vehicle_detail', ['id' => $id], UrlGeneratorInterface::ABSOLUTE_URL));
+        $form = $this->createForm(VehicleContactType::class, $contact);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            // Récupere les données du formulaire
+            $formData = $form->getData();
+
+            // Si la date est null renvoi la date actuel
+            if ($formData->getContactDateTime() === null) {
+                $formData->setContactDateTime(new \DateTime());
+            }
+
+            // Enregistrement en base de donnée
+            $this->entityManager->persist($formData);
+            $this->entityManager->flush();
+
+            // Redirection et affichage d'un message de succès
+            return $this->redirectToRoute('contact_success');
+        }
+
         return $this->render('vehicle/detail.html.twig', [
             'vehicle' => $vehicle,
             'pictures' => $pictures,
+            'form' => $form->createView(),
         ]);
     }
 }
