@@ -25,3 +25,10 @@ services:
     App\Controller\ServicesController:
         arguments:
             $entityManager: '@doctrine.orm.entity_manager'
+
+    # Extension twig personalisé pour l'ajout de openingTime
+    App\Twig\OpeningTimeExtension:
+        arguments:
+            $openingTimeRepository: '@App\Repository\OpeningTimeRepository'
+        tags:
+            - { name: 'twig.extension' }

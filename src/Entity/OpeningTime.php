@@ -14,8 +14,8 @@ class OpeningTime
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $dayOfWeek = null;
+    #[ORM\Column(length: 255)]
+    private ?string $dayOfWeek = null;
 
     #[ORM\Column(type: Types::TIME_MUTABLE)]
     private ?\DateTimeInterface $openingTime = null;
@@ -29,17 +29,17 @@ class OpeningTime
     #[ORM\ManyToOne(inversedBy: 'openingTimes')]
     private ?Admin $admin = null;
 
-    public function getId(): ?int
+    public function getId(): ?string
     {
         return $this->id;
     }
 
-    public function getDayOfWeek(): ?int
+    public function getDayOfWeek(): ?string
     {
         return $this->dayOfWeek;
     }
 
-    public function setDayOfWeek(int $dayOfWeek): static
+    public function setDayOfWeek(?string $dayOfWeek): static
     {
         $this->dayOfWeek = $dayOfWeek;
 
