@@ -11,36 +11,38 @@ nav {
     background-color: rgb(131, 139, 194);
 }
 
+.nav-link {
+    color: #774990; 
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: #59F8E8;
+}
+
 @media (max-width: 991px) {
     .sidebar {
         background-color: rgba(85, 17, 116, 0.79);
         backdrop-filter: blur(2px);
     }
 }
-/*
-#btn {
-    background-color: #838BC2;
-    box-shadow:inset -5px -5px 25px #0a0606, 5px 5px 10px #140707;
-}*/
 
 .btn{
-    color: #4e1111;
     background: linear-gradient(135deg, #7f4d85, #534d88);
-    font-family: 'Comfortaa', cursive;
     font-size: 18px;
     font-weight: 700;
-    text-transform: lowercase;
+    text-transform: capitalize;
     padding: 10px 20px;
-    border: none;
+    border: solid;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     transition: all 0.3s cubic-bezier(0.02, 0.01, 0.47, 1);
+    color: #59F8E8;
 }
 .btn:hover{
-    color: #fff;
-    border: none;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    color: #59F8E8;
+    box-shadow: 0 0 50px #FFC107;
     animation: rotate 0.7s ease-in-out both;
 }
 .btn:before,

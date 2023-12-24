@@ -11,10 +11,18 @@
     {# formulaire des filtres de recherche #}
     <div class="row">
         {{ form_start(form) }}
-            {{ form_row(form.brand) }}
-            {{ form_row(form.fuel) }}
-            {{ form_row(form.gearbox) }}
-            <button type="submit">Filtrer</button>
+        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center">
+            <div class="mb-3 mx-md-3">
+                {{ form_row(form.brand, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="mb-3 mx-md-3">                
+                {{ form_row(form.fuel, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <div class="mb-3 mx-md-3">                
+                {{ form_row(form.gearbox, {'attr': {'class': 'form-control'}}) }}
+            </div>
+            <button type="submit" class="btn ms-5 mt-md-0">Filtrer</button>
+        </div>
         {{ form_end(form) }}
     </div>
     {# Carte des véhicules #}

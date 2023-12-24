@@ -21,7 +21,7 @@ class VehicleFormType extends AbstractType
 
     private function getBrandsChoices(): array
     {
-        // Récupére les marques à partir de votre entité VehicleListing
+        // Récupére les marques à partir de l'entité VehicleListing
         // Utilise le repository pour obtenir les marques distinctes
         /** @var VehicleListingRepository $repository */
         $repository = $this->entityManager->getRepository(VehicleListing::class);
@@ -30,7 +30,9 @@ class VehicleFormType extends AbstractType
         // Transforme les marques en un tableau associatif pour les choix du formulaire
         $choices = [];
         foreach ($brands as $brand) {
-            $choices[$brand] = $brand;
+            $brandToUppercase = strtoupper($brand); // Récupère la marque en majuscules
+
+            $choices[$brandToUppercase] = $brandToUppercase;
         }
 
         return $choices;
@@ -43,6 +45,7 @@ class VehicleFormType extends AbstractType
                 'choices' => $this->getBrandsChoices(),
                 'required' => false, // Permet une sélection vide
                 'placeholder' => 'Sélectionnez une marque', // Texte par défaut pour la sélection vide
+                'label' => 'Marque'
             ])
             ->add('fuel', ChoiceType::class, [
                 'choices' => [
@@ -56,6 +59,7 @@ class VehicleFormType extends AbstractType
                 ],
                 'required' => false,
                 'placeholder' => 'Sélectionnez le carburant',
+                'label' => 'Carburant'
             ])
             ->add('gearbox', ChoiceType::class, [
                 'choices' => [
@@ -64,6 +68,7 @@ class VehicleFormType extends AbstractType
                 ],
                 'required' => false,
                 'placeholder' => 'Sélectionnez la boîte de vitesses',
+                'label' => 'Boite de vitesse'
             ]);
     }
 

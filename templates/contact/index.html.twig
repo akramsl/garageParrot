@@ -3,18 +3,52 @@
 {% block title %}Hello ContactController!{% endblock %}
 
 {% block body %}
-    <h1>Contactez-nous</h1>
-
-    {{ form_start(form) }}
-        {{ form_errors(form) }}
-
-        {{ form_row(form.lastname) }}
-        {{ form_row(form.firstname) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.phoneNumber) }}
-        {{ form_row(form.message) }}
-
-        <button type="submit">Envoyer</button>
-        
-    {{ form_end(form) }}
-{% endblock %}
+<div class="container">
+    <h1 class="text-center text-warning">Contactez-nous</h1>
+        <div class="row justify-content-around">
+            <div class="col-md-5 text-center">
+                <p>
+                    Bienvenue chez le Garage V. Parrot, votre partenaire automobile de confiance. 
+                    Que ce soit pour planifier un entretien, obtenir des informations sur nos 
+                    services, ou explorer nos véhicules d'occasion, notre équipe est là pour vous 
+                    aider. Remplissez le formulaire ci-dessous avec vos questions ou commentaires, 
+                    et n'oubliez pas d'inclure votre numéro de téléphone si vous souhaitez être 
+                    rappelé. Merci de choisir le Garage V. Parrot pour tous vos besoins automobiles. 
+                    Nous sommes impatients de vous offrir une expérience client exceptionnelle.
+                </p>
+                <hr>
+                <div>
+                    <h5 class="text-uppercase mb-4 font-weight-bold text-warning">
+                        Coordonnées
+                      </h5>
+                      <p>
+                        <a href="https://www.google.com/maps/place/Stadium+TFC/@43.5832972,1.434048,15z/data=!4m6!3m5!1s0x12aebb8442a6d3ad:0x258ae94747bde3cd!8m2!3d43.5832972!4d1.434048!16zL20vMDk4ejZj?entry=ttu"
+                          class="text-white text-decoration-none">
+                          <i class="fas fa-home"></i>145 rue du combatant<br />
+                          31000 Toulouse<br /></a>
+                          <a href="tel:+1234567890" class="text-white text-decoration-none">
+                          <i class="fas fa-phone-alt"></i>04 12 34 56 78 </a><br />
+                          <a href="mailto:contact@garagevparrot.fr" class="text-white text-decoration-none">
+                          <i class="fas fa-envelope"></i>contact@garagevparrot.fr
+                        </a>
+                    </p>
+                </div>
+                <hr>
+            </div>
+            <div class="col-md-5">
+                {{ form_start(form) }}
+                    {{ form_errors(form) }}
+            
+                    {{ form_row(form.lastname, {'attr': {'class': 'form-control mb-3'}}) }}
+                    {{ form_row(form.firstname, {'attr': {'class': 'form-control mb-3'}}) }}
+                    {{ form_row(form.email, {'attr': {'class': 'form-control mb-3'}}) }}
+                    {{ form_row(form.phoneNumber, {'attr': {'class': 'form-control mb-3'}}) }}
+                    {{ form_row(form.message, {'attr': {'class': 'form-control mb-3'}}) }}
+            
+                    <button type="submit" class="btn float-end">Envoyer</button>
+                {{ form_end(form) }}
+            </div>
+        </div>
+    </div>
+    {% endblock %}
+    

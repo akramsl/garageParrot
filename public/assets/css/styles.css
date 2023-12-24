@@ -12,6 +12,7 @@ body {
       rgb(115, 81, 141),
       rgb(113, 92, 140));
   font-family: 'Days One';
+  overflow-x: hidden; /* evite de faire scroller en horizontal*/
 }
 
 hr {

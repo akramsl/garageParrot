@@ -2,6 +2,18 @@
 
 {% block title %}Hello ServicesController!{% endblock %}
 
+{% block stylesheets %}
+    <style>
+        .card img {
+            min-width: 400px;
+            min-height: 400px;
+            max-width: 400px; /* Facultatif : limite la largeur maximale de l'image */
+            max-height: 400px;
+            margin: 0 auto;
+          }
+    </style>
+{% endblock %}
+
 {% block body %}
     <h1 class="text-center text-warning">Services</h1>
 
@@ -9,7 +21,7 @@
         <div class="row">
 
             {% for service in services %}
-                <div class="card col-12 col-md-4 bg-transparent text-light text-center border-warning">
+                <div class="card col-12 col-md-4 bg-transparent justify-content-center text-light text-center border-warning">
                     <img src="{{ asset('Pictures/upload/service/') ~ service.picture }}" class="card-img-top" alt="{{ service.title }}">
                     <div class="card-body">
                         <h5 class="card-title text-uppercase text-warning">{{ service.title }}</h5>

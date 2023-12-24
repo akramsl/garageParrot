@@ -22,9 +22,11 @@ class ContactType extends AbstractType
                         'pattern' => '/^[a-zA-ZÀ-ÿ\s\'-]+$/',
                         'message' => 'Le nom est invalide'
                     ])
-                ]
+                ],
+                'label' => 'Nom'
             ])
             ->add('firstname', TextType::class, [
+                'label' => 'Prénom',
                 'constraints' => [
                     new Regex([
                         'pattern' => '/^[a-zA-ZÀ-ÿ\s\'-]+$/',
@@ -41,6 +43,7 @@ class ContactType extends AbstractType
                 ]
             ])
             ->add('phoneNumber', TextType::class, [
+                'label' => 'Numéros de téléphone',
                 'constraints' => [
                     new Regex([
                         'pattern' => '#^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$#',

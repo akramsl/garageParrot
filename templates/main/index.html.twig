@@ -19,80 +19,93 @@
     <section class="row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
-            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            <img src="{{ asset('Pictures/kenny-eliason.jpg') }}" alt="Vincent PARROT en 2009">
         </div>
         <div class="col-md-6 px-5">
             <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
-                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                Vincent Parrot, avec 15 ans d'expérience dans la réparation automobile, 
+                a ouvert son garage à Toulouse en 2021. En deux ans, il a étendu ses services à la 
+                réparation, l'entretien, et la vente de véhicules d'occasion. Plaçant la confiance 
+                au cœur de son entreprise, il considère son atelier comme un lieu de qualité pour 
+                ses clients.
             </p>
         </div>
     </section>
     <section class=" d-flex flex-md-row-reverse row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
-            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            <a href="{{ path('services') }}">
+                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            </a>
         </div>
         <div class="col-md-6 px-5">
             <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
-                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                Découvrez notre expertise en mécanique automobile chez Garage V. Parrot. Que ce 
+                soit pour des réparations mécaniques standard, des diagnostics avancés ou des 
+                services d'entretien régulier, nous sommes là pour répondre à tous vos besoins. 
+                Explorez notre gamme complète de services mécaniques 
             </p>
         </div>
     </section>
     <section class="row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
-            <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+            <a href="{{ path('vehicules') }}">
+                <img src="{{ asset('Pictures/sell_car.jpg') }}" alt="Vente de véhicule">
+            </a>
         </div>
         <div class="col-md-6 px-5">
             <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci ex eum
-                exercitationem doloremque, doloribus temporibus laborum consequatur vel quam repudiandae.
-                Laborum, reiciendis natus? Quis unde labore commodi mollitia minima debitis.
+                Parcourez notre sélection de véhicules d'occasion de qualité au Garage V. Parrot. 
+                Que vous recherchiez une voiture fiable pour votre quotidien ou une option 
+                spécifique, notre stock répond à divers besoins. Découvrez notre showroom virtuel 
+                en explorant notre page dédiée à la vente de véhicules d'occasion 
             </p>
         </div>
     </section>
-    <div class="row bg-success">
-        <h2>Témoignages clients</h2>
-        <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-                {% for comment in comments %}
-                <div class="carousel-item {% if loop.first %}active{% endif %}">
-                    <div class="row">
-                        <div class="col-md-6 text-center ps-md-5">
-                            {% for i in 1..comment.rating %}
-                            ⭐️
-                            {% endfor %}
-                        </div>
-                        <div class="col-md-6 text-center ps-md-5">
-                            {{ comment.name}}
-                        </div>
-                        <div class="col-md-6 px-5">
-                            <p
-                                class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
-                                {{ comment.comment }}
-                            </p>
+    <div class="row justify-content-center">
+        <a class="btn col-6 col-md-3 my-4" href="{{ path('add_comment') }}" role="button"> Ajouter un commentaire </a>
+    </div>
+    <section class="row justify-content-center">
+        <div class="col-10 col-md-6 comment">
+            <h2 class="text-center text-warning">Témoignages clients</h2>
+            <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner py-3">
+                    {% for comment in comments %}
+                    <div class="carousel-item {% if loop.first %}active{% endif %}">
+                        <div class="row">
+                            <div class="comment-name col-md-6 text-center ps-md-5">
+                                {{ comment.name}}
+                            </div>
+                            <div class="col-md-6 text-center ps-md-5">
+                                {% for i in 1..comment.rating %}
+                                ⭐️
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-12 px-5">
+                                <p
+                                    class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center">
+                                    {{ comment.comment }}
+                                </p>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#testimonial-carousel"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#testimonial-carousel"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
         </div>
-        <a class="btn" href="{{ path('add_comment') }}" role="button"> Ajouter un commentaire </a>
-    </div>
+    </section>
+    
 </main>
 
 {% endblock %}

@@ -21,7 +21,7 @@ class AddCommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $comment->setPostDate(new \DateTime()); // Retourne la date du jour
+            $comment->setPostDate(new \DateTime('')); // Retourne la date du jour
 
             $entityManager->persist($comment);
             $entityManager->flush();
