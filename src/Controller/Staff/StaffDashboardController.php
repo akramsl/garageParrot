@@ -28,9 +28,10 @@ class StaffDashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToRoute('Page d\'acceuil', 'fa-solid fa-house', 'acceuil');
         yield MenuItem::linkToCrud('Commentaire', 'fa-solid fa-comments', AddComment::class);
         yield MenuItem::linkToCrud('Véhicules', 'fa-solid fa-car-rear', VehicleListing::class);
         yield MenuItem::linkToCrud('Conctact client', 'fa-solid fa-envelope-circle-check', ContactForm::class);
-        yield MenuItem::linkToCrud('Conctacte du véhicule ', 'fa-solid fa-envelope-circle-check', VehicleContact::class);
+        yield MenuItem::linkToCrud('Conctact du véhicule', 'fa-solid fa-envelope-circle-check', VehicleContact::class);
     }
 }

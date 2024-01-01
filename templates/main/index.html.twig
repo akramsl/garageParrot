@@ -16,7 +16,7 @@
         </div>
     </div>
 
-    <section class="row p-3 my-4">
+    <section class="box row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
             <img src="{{ asset('Pictures/kenny-eliason.jpg') }}" alt="Vincent PARROT en 2009">
@@ -31,7 +31,7 @@
             </p>
         </div>
     </section>
-    <section class=" d-flex flex-md-row-reverse row p-3 my-4">
+    <section class="box d-flex flex-md-row-reverse row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
             <a href="{{ path('services') }}">
@@ -47,7 +47,7 @@
             </p>
         </div>
     </section>
-    <section class="row p-3 my-4">
+    <section class="box row p-3 my-4">
 
         <div class="col-md-6 text-center ps-md-5">
             <a href="{{ path('vehicules') }}">
@@ -68,7 +68,7 @@
     </div>
     <section class="row justify-content-center">
         <div class="col-10 col-md-6 comment">
-            <h2 class="text-center text-warning">Témoignages clients</h2>
+            <h2 class="text-center text-warning">Avis clients</h2>
             <div id="testimonial-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner py-3">
                     {% for comment in comments %}
@@ -108,4 +108,8 @@
     
 </main>
 
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/main/scripts.js') }}"></script>
 {% endblock %}
