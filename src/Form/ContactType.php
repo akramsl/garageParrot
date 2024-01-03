@@ -19,7 +19,7 @@ class ContactType extends AbstractType
             ->add('lastname', TextType::class, [
                 'constraints' => [
                     new Regex([
-                        'pattern' => '/^[a-zA-ZÀ-ÿ\s\'-]+$/',
+                        'pattern' => "/^[a-zA-ZÀ-ÿ\s'\-]+$/u",
                         'message' => 'Le nom est invalide'
                     ])
                 ],
@@ -36,11 +36,11 @@ class ContactType extends AbstractType
             ])
             ->add('email', EmailType::class, [
                 'constraints' => [
-                    new Email([
-                        'message' => 'L\'adresse email "{{ value }}" n\'est pas valide',
-                        'mode' => 'html5', //Utilise le mode html5 pour la validation
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                        'message' => 'Le format de l\'email est invalide',
                     ])
-                ]
+                    ]
             ])
             ->add('phoneNumber', TextType::class, [
                 'label' => 'Numéros de téléphone',

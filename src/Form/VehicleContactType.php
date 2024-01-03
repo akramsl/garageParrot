@@ -22,7 +22,8 @@ class VehicleContactType extends AbstractType
                         'pattern' => '/^[a-zA-ZÀ-ÿ\s\'-]+$/',
                         'message' => 'Le nom est invalide'
                     ])
-                ]
+                    ],
+                    'label' => 'Nom'
             ])
             ->add('firstname', TextType::class, [
                 'constraints' => [
@@ -30,24 +31,25 @@ class VehicleContactType extends AbstractType
                         'pattern' => '/^[a-zA-ZÀ-ÿ\s\'-]+$/',
                         'message' => 'Le prénom est invalide'
                     ])
-                ]
+                    ],
+                    'label' => 'Prénom'
             ])
             ->add('email', EmailType::class, [
                 'constraints' => [
-                    new Email([
-                        'message' => 'L\'adresse email "{{ value }}" n\'est pas valide',
-                        'mode' => 'html5', //Utilise le mode html5 pour la validation
+                    new Regex([
+                        'pattern' => '/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/',
+                        'message' => 'Le format de l\'email est invalide',
                     ])
-                ]
+                    ]
             ])
             ->add('phoneNumber', TextType::class, [
                 'constraints' => [
                     new Regex([
                         'pattern' => '#^(0|\+33)[1-9]([-. ]?[0-9]{2}){4}$#',
                         'message' => 'Le format du numéro n\'est pas valide. (ex: 0123456789)'
-                    ]),
+                    ])
                 ],
-                'error_bubbling' => true,
+                'label' => 'Numéro de téléphone'
             ])
             ->add('message');
     }
