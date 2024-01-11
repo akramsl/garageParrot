@@ -1,0 +1,26 @@
+{
+  "name": "garageparrot",
+  "version": "1.0.0",
+  "description": "ecf du garage de vincent parrot",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akramsl/garageParrot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/akramsl/garageParrot/issues"
+  },
+  "engines": {
+    "node": "v16.9.*",
+    "npm": "7.21.*"
+  },
+  "homepage": "https://github.com/akramsl/garageParrot#readme"
+}
