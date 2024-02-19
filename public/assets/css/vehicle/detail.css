@@ -1,5 +1,5 @@
 .img_carousel {
-    height: 22em;
+    height: 20em;
 }
 
 @media screen and (min-width: 992px) {
@@ -10,8 +10,12 @@
     }
 
     .img_carousel {
-        height: 35em;
+        height: 28em;
     }
+}
+
+strong {
+    color: #ffc107;
 }
 
 

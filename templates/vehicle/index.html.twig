@@ -28,14 +28,14 @@
     {# Carte des véhicules #}
     <div class="row" id="ads">
         {% for vehicle in vehicles %}
-        <div class="col-md-4">
+        <div class="col-md-4 py-2">
             <div class="card rounded">
                 <div class="card-image">
                     <span class="card-notify-year">{{ vehicle.year }}</span>
                     <img src="{{ asset('Pictures/upload/vehicle/' ~ (vehicle.vehiclePictures.first() ? vehicle.vehiclePictures.first().imageName : 'default/image-non-disponible.png')) }}"
                         alt="voiture">
                 </div>
-                <div class="card-image-overlay m-auto">
+                <div class="card-image-overlay text-center mt-2">
                     <span class="card-detail-badge">{{ vehicle.price | number_format(0, ',', ' ') }} €</span>
                     <span class="card-detail-badge">{{ vehicle.mileage | number_format(0, ',', ' ')}} Kms</span>
                     <span class="card-detail-badge">{{ vehicle.gearbox }}</span>
@@ -47,6 +47,7 @@
                     <a href="{{ path('vehicle_detail', {'id': vehicle.id}) }}" class="ad-btn">View</a>
                 </div>
             </div>
+            <div class="hr-card"></div>
         </div>
         {% endfor %}
     </div>
