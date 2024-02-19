@@ -24,23 +24,31 @@
     border-radius: 10% 10% / 20% 20%;
 }
 
+section img {
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 12px 12px 50px 10px #838BC2;
+}
+
+section .pict {
+    width: 50rem;
+    height: 38rem;
+}
+
+
 @media screen and (max-width: 768px) {
     .text-link {
         font-size: 24px; 
     }
-
+    
     .image_container .wallpaper {
         height: auto;
     }
-
-}
-
-section img {
-    border-radius: 50%;
-    width: 400px;
-    height: 400px;
-    overflow: hidden;
-    box-shadow: 12px 12px 50px 10px #838BC2;
+    
+    section .pict {
+        width: 20rem;
+        height: 17rem;
+    }
 }
 
 .comment {
@@ -54,15 +62,3 @@ section img {
     color: #59F8E8;
 }
 
-.box {
-    transform: translateX(400%);
-    transition: transform 0.6s ease;
-}
-
-.box:nth-of-type(even){
-    transform: translateX(-400%);
-}
-
-.box.show {
-    transform: translateX(0);
-}

@@ -16,26 +16,24 @@
         </div>
     </div>
 
-    <section class="box row p-3 my-4">
+    <section class="row p-3 my-4">
 
-        <div class="col-md-6 text-center ps-md-5">
-            <img src="{{ asset('Pictures/kenny-eliason.jpg') }}" alt="Vincent PARROT en 2009">
+        <div class="pict col-md-6 text-center ps-md-5">
+            <img src="{{ asset('Pictures/kenny-eliason.jpg') }}" class="img-fluid h-100" alt="Vincent PARROT en 2009">
         </div>
         <div class="col-md-6 px-5">
             <p class="text-center text-light w-100 h-100 d-flex justify-content-center align-items-center mt-3">
                 Vincent Parrot, avec 15 ans d'expérience dans la réparation automobile, 
                 a ouvert son garage à Toulouse en 2021. En deux ans, il a étendu ses services à la 
-                réparation, l'entretien, et la vente de véhicules d'occasion. Plaçant la confiance 
-                au cœur de son entreprise, il considère son atelier comme un lieu de qualité pour 
-                ses clients.
+                réparation, l'entretien, et la vente de véhicules d'occasion.
             </p>
         </div>
     </section>
-    <section class="box d-flex flex-md-row-reverse row p-3 my-4">
+    <section class="d-flex flex-md-row-reverse row p-3 my-4">
 
-        <div class="col-md-6 text-center ps-md-5">
+        <div class="pict col-md-6 text-center ps-md-5">
             <a href="{{ path('services') }}">
-                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" alt="vidange de l'huile moteur">
+                <img src="{{ asset('Pictures/mecanicien_vidange.jpg') }}" class="img-fluid h-100 w-100" alt="vidange de l'huile moteur">
             </a>
         </div>
         <div class="col-md-6 px-5">
@@ -47,11 +45,11 @@
             </p>
         </div>
     </section>
-    <section class="box row p-3 my-4">
+    <section class="row p-3 my-4">
 
-        <div class="col-md-6 text-center ps-md-5">
+        <div class="pict col-md-6 text-center ps-md-5">
             <a href="{{ path('vehicules') }}">
-                <img src="{{ asset('Pictures/sell_car.jpg') }}" alt="Vente de véhicule">
+                <img src="{{ asset('Pictures/sell_car.jpg') }}" class="img-fluid h-100" alt="Vente de véhicule">
             </a>
         </div>
         <div class="col-md-6 px-5">
@@ -108,8 +106,4 @@
     
 </main>
 
-{% endblock %}
-
-{% block javascripts %}
-    <script src="{{ asset('assets/js/main/scripts.js') }}"></script>
 {% endblock %}

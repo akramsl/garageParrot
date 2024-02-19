@@ -13,8 +13,17 @@ body {
       rgb(113, 92, 140));
   font-family: 'Days One';
   overflow-x: hidden; /* evite de faire scroller en horizontal*/
+  font-size: 25px;
 }
 
 hr {
   border-top: 5px solid rgba(255, 193, 7, .9);
+}
+
+@media screen and (max-width: 768px) {
+
+  body {
+      font-size: 16px;
+  }
+  
 }
