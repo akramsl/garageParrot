@@ -1,6 +1,6 @@
 header {
-    min-width: 1920px;
-    min-height: 146px;
+    width: 100%;
+    height: 9rem;
   }
   
 header img {
@@ -15,8 +15,7 @@ nav {
     color: #774990; 
 }
 
-.navbar-nav .nav-link.active,
-.navbar-nav .nav-link.show {
+.navbar-nav .nav-link.active {
     color: #59F8E8;
 }
 
